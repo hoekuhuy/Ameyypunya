@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>360 Days With You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Pastikan di depan */
+
+  /* 1. Warna Dasar (Cokelat Muda Semu Kuning) */
+  background-color: #f7e8c3; 
+  
+  /* 2. Gambar Pola Bunga (Pattern) */
+  /* Saya gunakan pola bunga transparan agar menyatu dengan warna dasar */
+  background-image: url(natural-paper.png), /* Tekstur kertas */
+                    url('bunga.png'); /* Pola Bunga sederhana */
+  
+  /* 3. Pengaturan Gambar */
+  background-repeat: repeat; /* Biar polanya penuh se-layar */
+  background-size: auto, 150px; /* Ukuran pola bunga diatur 150px */
+  background-position: center;
+  
+  /* 4. Efek Buram (Blur) di Latar Belakang (Seperti di Gambar) */
+  /* Kita tambahkan overlay pseudo-element untuk efek blur */
+}
+
+/* Overlay untuk efek blur dan warna cokelat transparan */
+#lock-screen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(139, 69, 19, 0.2); /* Warna cokelat transparan */
+ 
+  z-index: -1; /* Di belakang kotak password */
+}
+
+/* --- LAYAR KUNCI (LOCK SCREEN) --- */
+#lock-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Pastikan di depan */
+
+  /* 1. Warna Dasar (Cokelat Muda Semu Kuning) */
+  background-color: #f7e8c3; 
+  
+  /* 2. Gambar Pola Bunga (Pattern) */
+  /* Saya gunakan pola bunga transparan agar menyatu dengan warna dasar */
+  background-image: url(natural-paper.png), /* Tekstur kertas */
+                    url('bunga.png'); /* Pola Bunga sederhana */
+  
+  /* 3. Pengaturan Gambar */
+  background-repeat: repeat; /* Biar polanya penuh se-layar */
+  background-size: auto, 150px; /* Ukuran pola bunga diatur 150px */
+  background-position: center;
+  
+  /* 4. Efek Buram (Blur) di Latar Belakang (Seperti di Gambar) */
+  /* Kita tambahkan overlay pseudo-element untuk efek blur */
+}
+
+/* Overlay untuk efek blur dan warna cokelat transparan */
+#lock-screen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(139, 69, 19, 0.2); /* Warna cokelat transparan */
+  ;           /* Efek blur pada background bunga */
+  z-index: -1; /* Di belakang kotak password */
+}
+
+/* --- KOTAK PASSWORD (DI TENGAH) --- */
+.lock-box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9); /* Putih transparan */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border: 3px solid #d2b48c; /* Bingkai warna cokelat tan */
+  width: 90%;
+  max-width: 350px;
+}
+
+.lock-box h2 {
+  font-family: 'Dancing Script', cursive; /* Pakai font surat tadi biar senada */
+  color: #8b4513; /* Cokelat tua */
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.lock-box input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #d2b48c;
+  background-color: #fff9e6; /* Kuning sangat muda */
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box; /* Biar padding nggak nambah lebar */
+  color: #8b4513;
+}
+
+.lock-box button {
+  padding: 12px 25px;
+  background-color: #daa520; /* Kuning Emas (Goldenrod) */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.lock-box button:hover {
+  background-color: #b8860b; /* Kuning emas tua saat di-hover */
+}
+
+.container {
+  width: 90%;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
+
+.box {
+  background: #f1d4b7;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  position: relative;
+}
+
+/* Surat */
+.letter img {
+  width: 120px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.letter-text {
+  margin-top: 140px;
+  font-size: 18px;
+  font-family: 'Dancing Script', cursive; 
+  color: #d63031;
+  line-height: 1.6;
+  font-weight: 600;
+
+  /* --- RATA TENGAH --- */
+  text-align: center;      /* Membuat teks di dalam baris jadi ke tengah */
+  display: block;          /* Memastikan elemen mengambil ruang yang cukup */
+  width: 90%;             /* Agar tidak terlalu mepet ke pinggir kotak */
+  margin-left: auto;       /* Margin auto kiri & kanan membuat box teks-nya ke tengah */
+  margin-right: auto;
+}
+/* Header */
+.header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  color: rgb(230, 16, 16);
+  text-align: center;
+}
+
+/* Foto */
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Kado */
+.gift {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gift img {
+  width: 120px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gift img:hover {
+  transform: scale(1.1);
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* FLIP BOOK */
+.flipbook {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  perspective: 1500px;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: rgb(153, 225, 238); /* Memberikan 'isi' agar tidak transparan */
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+
+.flipped {
+  transform: rotateY(-180deg);
+}
+
+/* tombol */
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(130, 59, 16, 0.998);
+  cursor: pointer;
+}
+</style>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<body>
+  <div id="lock-screen">
+  <div class="lock-box">
+    <h2>Enter Password</h2>
+    <input type="password" id="passInput" placeholder="Ketik sandinya...">
+    <button onclick="checkPassword()">Masuk</button>
+    <p id="error-msg" style="color: red; display: none;">Sandi salah, coba lagi!</p>
+  </div>
+</div>
+
+
+<div class="container">
+
+  <div class="box letter">
+    <img src="pngtree-love-letter-cute-cartoon-vector-png-image_7510727.png">
+    <div class="letter-text">
+      Hai kamu ❤️<br>
+      “360 hari sama kamu itu bukan hal kecil.<br>
+       Walau jarak sering bikin rindu makin berat,<br>
+       kita tetap jalan sejauh ini. Terima kasih sudah tetap bertahan dan gak nyerah sama kita. Aku masih mau kamu, hari ini, besok, dan seterusnya.”
+    </div>
+
+  </div>
+
+  <div class="box">
+  <div class="header-text">
+    360 Days With You ❤️<br>
+    Thank you for everything<br> you’ve given me.
+  </div>
+</div>
+
+ <div class="box photo" onclick="changePhoto()">
+  <img id="mainImage" src="am.png" alt="Photo">
+</div>
+
+  <div class="box gift">
+    <img src="christmas-gift-ornament-cartoon-illustration-tradition-glitter-ribbon_722369_wh1200.png" onclick="openGift()">
+    <div>Klik kadonya 🎁</div>
+  </div>
+
+</div>
+
+<!-- POPUP FLIPBOOK -->
+<div class="popup" id="popup">
+  <span class="close" onclick="closeGift()">×</span>
+
+  <div class="flipbook">
+
+    <div class="page" id="p1">
+      <div class="front"><img src="page1.jpg"></div>
+      <div class="back"><img src="page2.jpg"></div>
+    </div>
+
+    <div class="page" id="p2">
+      <div class="front"><img src="page3.jpg"></div>
+      <div class="back"><img src="page4.jpg"></div>
+    </div>
+
+    <div class="page" id="p3">
+      <div class="front"><img src="page5.jpg"></div>
+      <div class="back"><img src="page6.jpg"></div>
+    </div>
+
+     <div class="page" id="p4">
+      <div class="front"><img src="page7.jpg"></div>
+      <div class="back"><img src="page8.jpg"></div>
+    </div>
+
+    <div class="page" id="p5">
+      <div class="front"><img src="page9.jpg"></div>
+      <div class="back"><img src="page10.jpg"></div>
+    </div>
+
+    <div class="page" id="p6">
+      <div class="front"><img src="page11.jpg"></div>
+      <div class="back"><img src="page12.jpg"></div>
+    </div>
+
+    <div class="page" id="p7">
+      <div class="front"><img src="page13.jpg"></div>
+      <div class="back"><img src="page14.jpg"></div>
+    </div>
+
+    <div class="page" id="p8">
+      <div class="front"><img src="page15.jpg"></div>
+      <div class="back"><img src="page16.jpg"></div>
+    </div>
+
+    <div class="page" id="p9">
+      <div class="front"><img src="page17.jpg"></div>
+      <div class="back"><img src="page18.jpg"></div>
+    </div>
+
+    <div class="page" id="p10">
+      <div class="front"><img src="page19.jpg"></div>
+      <div class="back"><img src="page20.jpg"></div>
+    </div>
+
+
+  </div>
+
+  <div class="controls">
+    <button onclick="prevPage()">⬅</button>
+    <button onclick="nextPage()">➡</button>
+  </div>
+
+</div>
+
+<script>
+
+function checkPassword() {
+    const correctPassword = "nama-kamu"; // Ganti dengan password yang kamu mau
+    const input = document.getElementById("passInput").value;
+    const errorMsg = document.getElementById("error-msg");
+    const lockScreen = document.getElementById("lock-screen");
+    const mainContent = document.getElementById("main-content");
+
+    if (input === correctPassword) {
+        // Jika benar, sembunyikan kunci dan tampilkan isi web
+        lockScreen.style.display = "none";
+        mainContent.style.display = "block";
+    } else {
+        // Jika salah, tampilkan pesan error
+        errorMsg.style.display = "block";
+        document.getElementById("passInput").value = ""; // Kosongkan input
+    }
+}
+function openGift() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closeGift() {
+  document.getElementById("popup").style.display = "none";
+}
+
+let current = 0;
+let pages = document.querySelectorAll(".page");
+
+// --- LOGIKA OTOMATIS Z-INDEX ---
+// Ini menggantikan #p1, #p2, dst di CSS
+pages.forEach((page, index) => {
+  page.style.zIndex = pages.length - index;
+});
+
+function nextPage() {
+  if (current < pages.length) {
+    pages[current].classList.add("flipped");
+    // Turunkan z-index halaman yang sudah dibalik agar berada di bawah
+    pages[current].style.zIndex = current + 1;
+    current++;
+  }
+}
+
+function prevPage() {
+  if (current > 0) {
+    current--;
+    pages[current].classList.remove("flipped");
+    // Kembalikan z-index tinggi saat halaman ditutup lagi
+    pages[current].style.zIndex = pages.length - current;
+  }
+}
+const photos = [
+    "am.png",
+    "ak.png",
+    "al.png"
+];
+
+let currentIndex = 0;
+
+function changePhoto() {
+    const imgElement = document.getElementById("mainImage");
+    // Kita ganti urutannya sedikit agar index 0 muncul pertama kali
+    imgElement.src = photos[currentIndex];
+    // Baru setelah itu naikkan index untuk klik berikutnya
+    currentIndex = (currentIndex + 1) % photos.length;
+}
+
+// Panggil fungsi sekali saat refresh/buka halaman agar gambar pertama muncul
+changePhoto();
+</script>
+
+</body>
+</html>
